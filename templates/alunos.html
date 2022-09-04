@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Informações sobre alunos</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="/">Página inicial</a> |
+			<a href="/cursos">Todos os cursos</a> |
+			<a href="/curso/devweb">Desenvolvimento Web</a> |
+			<a href="/curso/poo">Programação Orientada a Objetos</a> |
+			<a href="/alunos">Média dos alunos</a>
+		</nav>
+	</header>
+	<main>
+		<h1>Situação dos alunos</h1>
+		<table>
+			<tr>
+				<th>Matrícula</th>
+				<th>Nome</th>
+				<th>Curso</th>
+				<th>Média</th>
+				<th>Situação</th>
+			</tr>
+			{% for aluno in lista_alunos %}
+				{# Cada "aluno" é um objeto da classe Aluno #}
+				<tr>
+					<td>{{ aluno.matricula }}</td>
+					<td>{{ aluno.nome }}</td>
+					<td>{{ aluno.curso }}</td>
+					<td>{{ aluno.media }}</td>
+					<td>
+						{% if aluno.media >= 6 %}
+							Aprovado
+						{% else %}
+							Reprovado
+						{% endif %}
+					</td>
+					
+				</tr>
+			{% endfor %}
+		</table>
+	</main>
+	<footer>
+		<p>Rodapé do projeto de demonstração.</p>
+	</footer>
+</body>
+</html>

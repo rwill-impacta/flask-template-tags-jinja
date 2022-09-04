@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cursos disponíveis</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="/">Página inicial</a> |
+			<a href="/cursos">Todos os cursos</a> |
+			<a href="/curso/devweb">Desenvolvimento Web</a> |
+			<a href="/curso/poo">Programação Orientada a Objetos</a> |
+			<a href="/alunos">Média dos alunos</a>
+		</nav>
+	</header>
+	<main>
+		<h1>Escolha um curso</h1>
+		<ul>
+			<li><a href="{{ rotas[0] }}">{{ cursos[0] }}</a></li>
+			<li><a href="{{ rotas[1] }}">{{ cursos[1] }}</a></li>
+		</ul>
+		
+		{# Isto é um comentário do Jinja (ele só existe no servidor, e não é enviado junto com a requisição).
+			Note que para trabalhar com listas, é muito mais prático (além de evitar erros) usar o laço for.
+			Entretanto, o Jinja também permite que usemos os índices da lista, como em um programa Python. #}
+		
+		<!--
+			Apenas para comparação: isso é um comentário em HTML. Diferente do comentário do Jinja, ele é
+			enviado junto com a requisição.
+		-->
+	</main>
+	<footer>
+		<p>Rodapé do projeto de demonstração.</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Informações sobre curso</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="/">Página inicial</a> |
+			<a href="/cursos">Todos os cursos</a> |
+			<a href="/curso/devweb">Desenvolvimento Web</a> |
+			<a href="/curso/poo">Programação Orientada a Objetos</a> |
+			<a href="/alunos">Média dos alunos</a>
+		</nav>
+	</header>
+	<main>
+		{# Note que podemos obter o nome da disciplina a partir do objeto de duas maneiras:
+			1- usando objeto.nome, visto que nome foi deixado propositalmente como um atributo público;
+			2- também podemos obter através do método get_nome(), como foi feito abaixo;
+			Ou seja, podemos usar qualquer método que retorna um valor, onde esse valor será exibido
+			na página gerada pelo Flask. #}
+		
+		<h1>Página da disciplina de {{ objeto.get_nome() }}</h1>
+		<p>{{ objeto.get_descricao() }}</p>
+
+		<h2>Habilidades</h2>
+		<ul>
+			{% for item in habilidades %}
+				<li>{{ item }}</li>
+			{% endfor %}
+		</ul>
+
+		<p>Nível de dificuldade: 
+		{% if dificuldade == 1 %}
+			<strong>Fácil</strong>
+		{% elif dificuldade == 2 %}
+			<strong>Médio</strong>
+		{% else %}
+			<strong>Difícil</strong>
+		{% endif %}
+		</p>
+		
+	</main>
+	<footer>
+		<p>Rodapé do projeto de demonstração.</p>
+	</footer>
+</body>
+</html>
